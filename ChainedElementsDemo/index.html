@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ChainedElementsDemo</title>
+  <base href="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="multiplication.js"></script>
+</head>
+<body>
+
+  <input id=input name="input" type="text" placeholder="0">
+
+  <app-multiplication id="multiplication"></app-multiplication>
+
+  <button onclick="getInput();">Calculate</button>
+  
+  <script>
+    function getInput(){
+      var input = document.getElementById("input").value;
+      document.getElementById("multiplication").inputvalue = input;
+    }
+  </script>
+  
+  <script>
+    const multiplication = document.querySelector('app-multiplication');
+    multiplication.addEventListener('result',(event) =>{
+      console.log(`"Multiplication event" emitted: ${event.detail}`);
+    });
+  </script>
+</body>
+</html>
